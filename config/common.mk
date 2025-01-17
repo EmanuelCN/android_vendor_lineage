@@ -1,6 +1,8 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+$(call inherit-product-if-exists, vendor/google/overlays/ThemeIcons/config.mk)
+
 PRODUCT_BRAND ?= LineageOS
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
@@ -10,6 +12,7 @@ else
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
+
 
 ifeq ($(PRODUCT_IS_ATV),true)
 ifeq ($(PRODUCT_ATV_CLIENTID_BASE),)
